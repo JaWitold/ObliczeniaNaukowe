@@ -1,0 +1,48 @@
+\section{zadanie 4}
+Zadanie polegało na skorzystaniu z wcześniej zaprogramowanych metod w celu znalezienia pierwistka równania \(\sin(x) - (\frac{x}{2})^2 = 0\) dla danych wejściowych:
+\begin{enumerate}
+  \item \textbf{metoda bisekcji:} \(a = 1.5\), \(b = 2\), \(\delta = 0.5 \cdot 10^{-5}\), \(\epsilon = 0.5 \cdot 10^{-5}\)
+  \item \textbf{metoda stycznych:} \(x_0 = 2\), \(\delta = 0.5 \cdot 10^{-5}\), \(\epsilon = 0.5 \cdot 10^{-5}\)
+  \item \textbf{metoda siecznych:} \(x_0 = 1\), \(x_1 = 2\), \(\delta = 0.5 \cdot 10^{-5}\), \(\epsilon = 0.5 \cdot 10^{-5}\)
+\end{enumerate}
+
+\subsection{Wyniki:}
+Wyniki działania programu znajdują się w poniższej tabeli
+\begin{table}[ht]
+  \makebox[\textwidth]{
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    metoda & \(x\) & \(f(x)\) & iter & error \\
+    \hline
+    \hline
+    bisekcji & 1.9337539672851562 & -2.7027680138402843e-7 & 16 & 0 \\
+    stycznych & 1.933753779789742 & -2.2423316314856834e-8 & 4 & 0 \\  
+    siecznych & 1.933753644474301 & 1.564525129449379e-7 & 4 & 0 \\  
+    \hline
+    \end{tabular}
+    }
+    \caption{wartości z wyjścia programu \textbf{zadanie4.jl}}
+
+\end{table}
+
+\subsection{Wnioski:}
+Wszystkie 3 metody zwracają podobne wyniki. Jednak należy zwrócić uwagę że metoda bisekcji potrzebowała aż 16 iteracji podczas gdy metody siecznych i stycznych potrzebowały po 4 iteracje by zakończyć działanie. Wynika to z wykładnika zbieżności \( \alpha\) dla poszczególnych metod.
+
+\begin{table}[ht]
+  \makebox[\textwidth]{
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    metody & zbieżność & wykładnik \(\alpha\) & uwagi \\
+    \hline
+    \hline
+    bisekcji & globalna & 1 & stosować hybrydowo \\
+    siecznych & lokalna & \(\frac{1 + \sqrt{5}}{2} \approx 1.618\cdots \)&\\  
+    stycznych & lokalna & 2 & konieczność liczenia \(f'(x)\) \\  
+    \hline
+    \end{tabular}
+    }
+    \caption{Tabela porównania metod przedstawiona na wykładzie}
+
+\end{table}

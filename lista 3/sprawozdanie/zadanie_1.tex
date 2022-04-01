@@ -1,0 +1,6 @@
+\section{zadanie 1}
+Zadanie polegało na implementacji funkcji rozwiązującej równanie \(f(x) = 0\) metodą bisekcji. Metoda opiera swoje działanie na twierdzeniu Darboux. Twierdzebnie mówi nam, że jeżeli funkcja ciągła na przedziale (a, b) zmienia znak (tj. \(f(a)f(b) < 0\)) to w tym przedziale istnieje punkt c taki że f(c) = 0.
+
+\subsection{Opis algorytmu: }
+Najpierw algorytm sprawdza czy znaki wartości funkcji są różne - zgodnie z twierdzeniem Darboux. Jeśli obie wartości są dodatnie lub obie są ujemne zwracany jest błąd. W przeciwnym wypadku iteracyjnie wykonujemy następujące kroki jeśli nie osiągniemy zadanej dokładności \(|a - b| <= \epsilon\).
+Wyznaczony jest środek przedziału \(c\) i jego wartość \(f(c)\). Mamy 2 podprzedziały \([a, c]]\) i \([c, b]]\). Z powstałych podprzedziałów wybierany jest ten w którym wartość funkcji \(f\) zmienia znak. Podprzedziały wybierane w kolejnych iteracjach są o połowę krótsze zatem funkcja wyznacza nam przybliżenie miejsca zerowego.

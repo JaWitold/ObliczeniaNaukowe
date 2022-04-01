@@ -1,0 +1,5 @@
+\section{zadanie 3}
+Zadanie polegało na implementacji funkcji rozwiązującej równanie \(f(x) = 0\) metodą Eulera(siecznych). Polega ona na przybliżaniu dostatecznie małych odcinków funkcji za pomocą funkcji liniowej. 
+
+\subsection{Opis algorytmu: }
+Najpierw algorytm sprawdza oblicza \(f(a)\) oraz \(f(b)\). Następnie w pętli porównywane są wartości \(f(a)\) oraz \(f(b)\). W przypadku gdy \(f(a) > f(b)\) to \(a\) zamieniane jest z \(b\) oraz \(f(a)\) zamieniane jest z \(f(b)\). Obliczane jest nowe \(a\) oraz w miejscu przecięcia się siecznej z osią OX oraz nowe \(f(a)\). Sprawdzany jest warunek końca \(|b-a| < \delta\) lub \(|f(a)| < \epsilon\). W przeciwnym wypadku wykonywana jest kolejna iteracja. Metoda siecznych ma tę przewagę nad metodą Newtona że nie musimy znać pochodnej danej funkcji aby znaleźć przybliżenie pierwiastka funkcji.

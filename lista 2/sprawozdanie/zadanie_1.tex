@@ -1,0 +1,25 @@
+\section{zadanie 1}
+Zadanie polegało na niewielkiej zmianie wartości \(x_4\) oraz \(x_5\).
+
+\subsection{Wnioski:}
+Zmiany wyników są widoczne przy obliczeniach w arytmetyce \textbf{Float64} (Double). Niewielka zmiana danych wejściowych znacząco wpłynęła na wynik działania algorytmów. W tym przypadku, mimo że ilorazy miały różny rząd wielkości, kolejność sumowania nie miała, w arytmetyce \textbf{Float64}, znaczenia dla wyników. Dla arytmetyki \textbf{Float32} zmiana nie miała wpływu na wyniki.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    \emph{typ zmiennej} & \emph{output} \\
+    \hline
+    \hline
+    Float32 & -0.4999443 \\
+     & -0.4543457 \\
+     & -0.5 \\
+     & -0.5 \\
+    Float64 & -0.004296342739891585 \\
+     & -0.004296342998713953 \\
+     & -0.004296342842280865 \\
+     & -0.004296342842280865 \\
+    \hline
+  \end{tabular}
+  \caption{wartości z wyjścia programu \texttt{zadanie1.jl}}
+\end{table}

@@ -1,0 +1,26 @@
+\section{zadanie 1}
+Zadanie polegało na implementacji funkcji obliczającej ilorazy różnicowe.
+
+\subsection{Iloraz różnicowy: }
+Jeśli \(f: X \rightarrow Y\) oraz \(x_0, x_1 \in X\) to ilorazem różnicowym nazywamy
+\[\ f[x_0] = f(x_0)\]
+\[\ f[x_0, x_1] = \frac{f(x_0) - f(x_1)}{x_0 - x_1}\]
+Ponadto ilorazy różnicowe spełniają równość:
+\[ f[x_0, x_1, \ldots, x_n] = \frac{f[x_1, x_2, \ldots, x_{n-1}] - f[x_0, x_1, \ldots, x_n]}{x_n - x_0} \]
+
+Warto zauważyć że jeśli \(\Delta x = x_0 - x_1 \rightarrow 0 \) to iloraz różnicowy \(f[x_0, x_1]\) odpowiada wartości pochodnej pierwszego stopnia w punkcie \(x_0\).
+
+\subsection{Opis algorytmu: }
+Algorytm na wejściu dostaje wektory długości \(n + 1\) argumentów i wartości pewnej funkcji.\\ Wyjściem jest wektor ilorazów różnicowych, długości \(n + 1\), w postaci: 
+\[ [f[x_0], f[x_0, x_1], \ldots,f[x_0, x_1, \ldots, x_{n - 1}], f[x_0, x_1, \ldots, x_n] ]\] 
+Funkcja została oprogramowana bez użycia macierzy 2-wymiarowej. 
+Aby to osiągnąć korzystamy z zagnieżdżonej pętli oraz z równości obliczania ilorazów różnicowych.
+
+\begin{align*}
+  f[x_0] &\searrow & & & & & f[x_0]\\
+  f[x_1] & \begin{array}{c} \rightarrow \\ \searrow \end{array} &f[x_0, x_1]&\searrow & & & f[x_0, x_1]\\
+  \vdots & & & &\cdots & &\vdots\\
+  f[x_{n - 1}] &\begin{array}{c} \rightarrow \\ \searrow \end{array} &f[x_{n-2}, x_{n-1}] &\begin{array}{c} \rightarrow \\ \searrow \end{array} &\cdots &\begin{array}{c} \rightarrow \\ \searrow \end{array} &f[x_{0}, x_{1}, \ldots, x_{n-1}]\\
+  f[x_n] &\rightarrow & f[x_{n-1}, x_{n}] & \rightarrow &\cdots &\rightarrow &f[x_{0}, x_{1}, \ldots, x_n]
+\end{align*}
+

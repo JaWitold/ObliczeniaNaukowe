@@ -1,0 +1,16 @@
+\section{zadanie 2}
+Zadanie polegało na implementacji funkcji obliczającej wartość wielomianu interolacyjnego stopnia \(n\) w postaci Newtona w punkcie \(x = t\) za pomocą uogólionego algorytmu Hornera w czasie liniowym.\\
+Algorytm na wejściu dostaje wektory długości argumentów \(n + 1\) oraz wektor ilorazów różnicowych.
+Wyjściem jest wartość wielomianu w punkcie \(x = t\) 
+
+\subsection{Opis algorytmu: }
+Wartość wielomianu interpolacyjnego Newtona w punkcie jest równa:
+\[N_n(x) = f[x_0] + f[x_0, x_1](x - x_0) + \ldots + f[x_0, x_1, \ldots, x_n](x - x_0)(x - x_1)\ldots(x - x_{n-1})\]
+można ją obliczać za pomocą uogólnionego schematu Hornera
+\begin{align*}
+ w_n(x) & := & f[x_0, x_1, \ldots, x_n]&\\
+ w_k(x) & := & f[x_0, x_1, \ldots, x_k] + (x - x_k)w_k(x)& \forall(k = n-1, \ldots, 0)\\
+ N_n(x) & := & w_0(x) &\\
+\end{align*}
+
+Algorytm wykorzystuje jedną pętlę dlatego jego złożoność obliczeniowa wynosi \(O(n)\).

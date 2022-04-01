@@ -1,0 +1,20 @@
+\section{zadanie 3}
+Zadanie polegało na implementacji funkcji obliczającej, w czasie kwadratowym, współczynniki wielomianu w postaci naturalnej \(a_0, a_1, \ldots, a_n\).
+
+Algorytm na wejściu dostaje wektor argumentów długości \(n + 1\) oraz wektor ilorazów różnicowych.
+Wyjściem jest wektor współczyników postaci naturalnej wielomianu, długości \(n + 1\), w postaci: 
+\[ [a_0, a_1, \ldots, a_n] \]
+\subsection{Opis algorytmu: }
+Naszym celem jest zamiana wielomianu interpolacyjnego w postaci Newtona:
+\[N_n(x) = f[x_0] + f[x_0, x_1](x - x_0) + \ldots + f[x_0, x_1, \ldots, x_n](x - x_0)(x - x_1)\ldots(x - x_{n-1})\]
+do postaci normalnej:
+\[p(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x^1 + a_0\]
+dla skrócenia zapisu będziemy posługiwać się notacją \(c_0 = f[x_0], c_1 = f[x_0, x_1], \ldots, c_n = f[x_0, x_1, \ldots, x_n]\) wtedy:
+\[N_n(x) = c_0 + c_1(x - x_0) + \ldots + c_n(x - x_0)(x - x_1)\ldots(x - x_{n-1})\]
+
+Zauważmy że czynnik przy \(a_n\) znajdujący się przy \(x^n\) jest równy \(c_n\).
+Idea algorytmu polega na wyznaczeniu początkowej wartości współczynnika przy aktualnie rozważanej potędze \(x^k\) \( (a_k = c_k - x_ka_{i+1} ) \). Następnie zaktualizujemy wartości \(a_i\) dla \(k < i < n \) w taki sposób że \( \forall_{i \in (k + 1, n - 1)} a_i = a_i - x_ia_{i + 1} \). Po kolejnych potęgach będziemy poruszać się iteracyjnie "w dół" ponieważ znamy wartość współczynnika stojącego przy \(x^n\)
+
+\subsection{Złożoność obliczeniowa algorytmu: }
+Algorytm wykorzystuje dwie zagnieżdżone pętle, z czego zewnętrzna wykona się \(n\) razy, a wewnętrzna maksymalnie \(n-1\) razy. Daje nam to złożoność obliczeniową wynoszącą \(O(n^2)\)
+

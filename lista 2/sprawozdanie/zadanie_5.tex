@@ -1,0 +1,25 @@
+\section{zadanie 5}
+Zadanie polegało na przeprawadzeniu eksperymentów dla funkcji rekurencyjnej:
+\[ p_{n+1} := p_n + rp_n(1-p_n), \textrm{dla } n = 0,1,2,...\]
+dla danych początkowych \(p_0 = 0.01, r=3\) oraz 40 iteracji. 
+W części \textbf{a)} rekurencja została podzielona na 4 interwały takie że po każdym stosowane było obięcie do 3 miejsc po przecinku, obliczenia wykonywane były we \texttt{Float32}. W części \texttt{b)} program obliczał tą samą rekurencję w precyzji \texttt{Float32} i \texttt{Float64}.
+\subsection{Wnioski:}
+Wyniki w tabeli wskazują jak ważna jest dokładność z jaką reprezentowane są liczby.
+\begin{table}[ht]
+  \makebox[\textwidth]{
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \texttt{Float32}, 4*10 iteracji z obcięciem & \texttt{Float32} 40 iteracji  \\
+    0.715 & 0.25860548 \\
+    \hline
+    \hline
+    \texttt{Float32} 40 iteracji & \texttt{Float64} 40 iteracji  \\
+    0.25860548 & 0.011611238029748606 \\
+    \hline
+    
+    \end{tabular}
+    }
+    \caption{wartości z wyjścia programu \texttt{zadanie5.jl}}
+
+\end{table}

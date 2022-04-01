@@ -1,0 +1,12 @@
+\section{zadanie 2}
+Zadanie polegało na implementacji funkcji rozwiązującej równanie \(f(x) = 0\) metodą Newtona(stycznych). Polega ona na iteracyjnym wyznaczaniu kolejnych stycznych do wykresu funkcji aż do momentu znalezienia pierwiastka funkcji.
+
+\subsection{Aby skorzystać z metody Newtona, funkcja musi spełniać następujące warunki: }
+\begin{enumerate}
+  \item funkcja f na przedziale \([a, b]\) ma dokładnie jeden pierwiastek.
+  \item wartości funkcji w krańcach przedziału mają różne znaki \(f(a)f(b) < 0\).
+  \item pierwsza i druga pochodna nie zmieniają znaku w przedziale \([a, b]\). 
+\end{enumerate}
+
+\subsection{Opis algorytmu: }
+Najpierw algorytm sprawdza czy \(f(x_0) < \epsilon\). Jeżeli nie to w pętli obliczany jest \(x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} \) - współrzędna przecięcia funkcji w \(f(x_0)\) z osią OX. Jeżeli \(|x_1 - x_0| < \delta\) lub \(f(x_0) < \epsilon\) to algorytm kończy działanie. W przeciwnym wypadku \(x_0 = x_1\) i iteracyjnie obliczane są kolejne przybliżenia.
